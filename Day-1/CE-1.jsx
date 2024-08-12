@@ -7,6 +7,7 @@ const alerter = () =>
 function load()
 {
  return(<div>
+<h1>Let we see the output of JAVASCRIPT</h1>
   <button onClick={alerter}>Submit</button>
  </div>)
 }
