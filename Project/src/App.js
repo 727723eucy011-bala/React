@@ -18,13 +18,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import MainPage from './components/MainPage';
 // import Homepage from './components/Home';
 import './App.css'
-// import BasicForm from './components/exampler';
-import Smile from './components/exampler';
-// import BasicForm from '../../Day-2/PAH';
+// import ToggleMessage from './components/exampler';
+import Goku from './components/exampler';
 
 function App() {
   return (
-    <Smile />
+    // <goku />
+    <Goku />
     // <Router>
     //   <Routes>
     //     <Route path="/" element={<Login />} />

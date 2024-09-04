@@ -1,26 +1,57 @@
-import React from "react";
-const  Smile =() =>
-{
-    return (<div>
-    <h1 style={st.h1}>Smile Component</h1>
-    <p style={st.h1}>It is a functional component</p>
-    <img style={st.img} src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.TqCbovmLULy2o-akEijiPAHaHZ%26pid%3DApi&f=1&ipt=899c2a4c12642e1a7a3c7c438601ae2b44b6446bee325ed7d4a5a551e0aa66e0&ipo=images" alt="smiling image"></img>
-    </div>
-    )
-}
-const st = {
-    h1: {
-        justifyContent:'center',
-        padding:'20px',
-        display:'flex'
-    },
-    img:{
-        justifyContent:'center',
-        // width:'100%',
-        height:'10%',
-        display:'flex',
-        
-        padding:'150px'
+// import React, {Component} from 'react';
+// class Two extends Component{
+//     constructor(props)
+//     {
+//         super(props);
+//         this.state={ input:''}
+//     };
+
+// handle = (event) =>{
+//     this.setState(
+//         {
+//             input:event.target.value
+//         }
+//     );
+// }
+// render(){
+//     return (
+//         <div>
+//             <h1>Two-Way Binidng Example</h1>
+//             <input
+//             type='text'
+//             value={this.state.input}
+//             onChange={this.handle} />
+//             <p>The input is: {this.state.input}</p>
+//         </div>
+//     );
+// }
+// }
+// export default Two;
+
+
+import React, { useState } from 'react';
+
+function Goku() {
+  const [state, setState] = useState('KAIOKEN');
+  const [clickCount, setClickCount] = useState(0);
+
+  const handleClick = () => {
+    setClickCount((prev) => prev + 1);
+    if (clickCount === 4) {
+      setState((prev) => (prev === 'KAIOKEN' ? 'SUPERSAIYAN' : 'KAIOKEN'));
+      setClickCount(0);
     }
+  };
+
+  return (
+    <div>
+      <h1>{state}</h1>
+      <button onClick={handleClick}>
+        Click me
+      </button><br />
+      <p>Click me 4 times to see the magic {clickCount}/4</p>
+    </div>
+  );
 }
-export default Smile;
+
+export default Goku;
