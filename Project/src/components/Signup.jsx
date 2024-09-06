@@ -1,23 +1,24 @@
 // src/components/Signup.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
+import { TextField, Button, Typography, Container, Stack, Paper } from '@mui/material';
+import { AccountCircle } from '@mui/icons-material'; 
+import { Lock } from '@mui/icons-material'; 
 
 function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState(''); // New state for confirm password
-  const [email, setEmail] = useState(''); // New state for email
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Use useNavigate
+  const navigate = useNavigate();
 
   const handleSignup = () => {
-    // Check if username, password, confirm password, and email are not empty
     if (username.trim() === '' || password.trim() === '' || confirmPassword.trim() === '' || email.trim() === '') {
       setError('Please fill in all fields.');
       return;
     }
 
-    // Check if passwords match
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
       return;
@@ -25,71 +26,92 @@ function Signup() {
 
     const existingUser = JSON.parse(localStorage.getItem('user'));
 
-    // Check if the username already exists
     if (existingUser && existingUser.username === username) {
       setError('User already exists. Please choose a different username.');
       return;
     }
 
-    // Store the new user in localStorage
     localStorage.setItem('user', JSON.stringify({ username, password, email }));
 
-    // Display confirmation message
     alert(`User ${username} created successfully! Please log in.`);
-
-    // Redirect to login page
-    navigate('/'); // Redirect to Login page
+    navigate('/');
   };
 
   return (
-    <div className="form-container">
-      <h2>Sign Up</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => {
-          setUsername(e.target.value);
-          setError(''); // Clear error on input change
-        }}
-        required // Mark as required
-      />
-      <input
-        type="email" // Email input type
-        placeholder="Email"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-          setError(''); // Clear error on input change
-        }}
-        required // Mark as required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => {
-          setPassword(e.target.value);
-          setError(''); // Clear error on input change
-        }}
-        required // Mark as required
-      />
-      <input
-        type="password"
-        placeholder="Confirm Password"
-        value={confirmPassword}
-        onChange={(e) => {
-          setConfirmPassword(e.target.value);
-          setError(''); // Clear error on input change
-        }}
-        required // Mark as required
-      />
-      {error && <div className="error">{error}</div>}
-      <button onClick={handleSignup}>Sign Up</button>
-      <p>
-        Already have an account? <span onClick={() => navigate('/')} className="link">Login</span>
-      </p>
-    </div>
+    <Container component="main" maxWidth="xs" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#e3f2fd' }}>
+      <Paper elevation={10} style={{ padding: '40px', textAlign: 'center', width: '100%', backgroundColor: '#ffffff', borderRadius: '15px' }}>
+        <Typography variant="h4" gutterBottom style={{ color: '#00796b' }}>
+          Sign Up
+        </Typography>
+        <Stack spacing={3} alignItems="center">
+          <TextField
+            variant="outlined"
+            label="Username"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              setError('');
+            }}
+            required
+            InputProps={{
+              startAdornment: <AccountCircle style={{ color: '#00796b' }} />, // Icon in the input field
+            }}
+            style={{ width: '80%', borderRadius: '10px' }}
+          />
+          <TextField
+            variant="outlined"
+            type="email"
+            label="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setError('');
+            }}
+            required
+            style={{ width: '80%', borderRadius: '10px' }}
+          />
+          <TextField
+            variant="outlined"
+            type="password"
+            label="Password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setError('');
+            }}
+            required
+            InputProps={{
+              startAdornment: <Lock style={{ color: '#00796b' }} />, // Lock icon in the input field
+            }}
+            style={{ width: '80%', borderRadius: '10px' }}
+          />
+          <TextField
+            variant="outlined"
+            type="password"
+            label="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              setError('');
+            }}
+            required
+            style={{ width: '80%', borderRadius: '10px' }}
+          />
+          {error && (
+            <Typography color="error">{error}</Typography>
+          )}
+          <Button variant="contained" color="primary" onClick={handleSignup} style={{ width: '80%', backgroundColor: '#00796b', borderRadius: '10px' }}>
+            Sign Up
+          </Button>
+          <Typography variant="body2" style={{ color: '#00796b' }}>
+            Already have an account?{' '}
+            <span onClick={() => navigate('/')} className="link" style={{ cursor: 'pointer', color: '#004d40', textDecoration: 'underline' }}>
+              Login
+            </span>
+          </Typography>
+        </Stack>
+      </Paper>
+    </Container>
   );
 }
 
