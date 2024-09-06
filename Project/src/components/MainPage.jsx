@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IconButton, AppBar, Toolbar, Typography, Menu, MenuItem, Paper, Stack, FormControl, InputLabel, Select } from '@mui/material';
+import { ExitToApp, MoreVert } from '@mui/icons-material';
 
 function MainPage() {
   const navigate = useNavigate();
-
-  // State for managing visibility of department and doctor selection
+  const [anchorEl, setAnchorEl] = useState(null);
   const [showFindDoctor, setShowFindDoctor] = useState(false);
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [selectedDoctor, setSelectedDoctor] = useState('');
-  const [menuOpen, setMenuOpen] = useState(false); // State for menu visibility
 
   const handleSignOut = () => {
     localStorage.removeItem('user');
     navigate('/');
+  };
+
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
   };
 
   const handleFindDoctorClick = () => {
@@ -35,84 +43,110 @@ function MainPage() {
 
   return (
     <div className="main-page">
-      <header>
-        <div className="logo">Acme Hospital</div>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-          &#x22EE; {/* This represents the three dots */}
-        </button>
-        <nav className={`${menuOpen ? 'show' : ''}`}>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#" onClick={handleFindDoctorClick}>Find a Doctor</a></li>
-            <li><a href="#">Make an Appointment</a></li>
-            <li><a href="#">Book a Master Health Checkup</a></li>
-            <li><a href="#">Departments</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </nav>
-      </header>
+      <AppBar position="static" style={{ backgroundColor: '#00796b' }}>
+        <Toolbar>
+          <Typography variant="h5" noWrap component="div" >
+            Acme Hospital
+          </Typography>
+          <IconButton onClick={handleMenuOpen} style={{ position:'fixed', left: '100px', top: '10px' }}  >
+          {/* <IconButton onClick={handleMenuOpen}> */}
+            <MoreVert />
+          </IconButton>
+
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+          >
+            <MenuItem onClick={handleFindDoctorClick}>Find a Doctor</MenuItem>
+            {/* <MenuItem>Consulting (Link to Consulting page)</MenuItem> */}
+            {/* <MenuItem>Departments</MenuItem> */}
+            <MenuItem onClick={handleSignOut}>
+              <ExitToApp /> Sign Out
+            </MenuItem>
+          </Menu>
+        </Toolbar>
+      </AppBar>
 
       <main>
-        <section className="hero">
-          <div className="hero-content">
-            <h1>Welcome to Acme Hospital</h1>
-            <p>Providing exceptional healthcare for over 50 years.</p>
-          </div>
-        </section>
+        <Stack spacing={3} style={{ padding: '20px' }}>
+          <Paper elevation={3} style={{ padding: '20px', backgroundColor: '#e0f7fa' }}>
+            <Typography variant="h4" gutterBottom>
+              Welcome to Acme Hospital
+            </Typography>
+            <Typography variant="body1">
+              Providing exceptional healthcare for over 50 years.
+            </Typography>
+          </Paper>
 
-        {showFindDoctor && (
-          <section className="find-doctor">
-            <div className="find-doctor-content">
-              <label htmlFor="department">Select your department:</label>
-              <select
-                id="department"
-                value={selectedDepartment}
-                onChange={(e) => {
-                  setSelectedDepartment(e.target.value);
-                  setSelectedDoctor(''); // Reset doctor selection when department changes
-                }}
-              >
-                <option value="">Select your department</option>
-                {departments.map(department => (
-                  <option key={department.id} value={department.name}>{department.name}</option>
-                ))}
-              </select>
+          {showFindDoctor && (
+            <Paper elevation={3} style={{ padding: '20px' }}>
+              <Typography variant="h5" gutterBottom>
+                Find a Doctor
+              </Typography>
+              <FormControl fullWidth>
+                {/* <br /> */}
+                <InputLabel id="department-label">Select Department</InputLabel>
+                <Select
+                  labelId="department-label"
+                  value={selectedDepartment}
+                  onChange={(e) => {
+                    setSelectedDepartment(e.target.value);
+                    setSelectedDoctor('');
+                  }}
+                >
+                  <MenuItem value="">Select Department</MenuItem>
+                  {departments.map(department => (
+                    <MenuItem key={department.id} value={department.name}>{department.name}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
 
-              <label htmlFor="doctor">Select your doctor:</label>
-              <select
-                id="doctor"
-                value={selectedDoctor}
-                onChange={(e) => setSelectedDoctor(e.target.value)}
-                disabled={!selectedDepartment} // Disable until department is selected
-              >
-                <option value="">Select your doctor</option>
-                {selectedDepartment && doctors[selectedDepartment]?.map((doctor, index) => (
-                  <option key={index} value={doctor}>{doctor}</option>
-                ))}
-              </select>
-            </div>
-          </section>
-        )}
+              <FormControl fullWidth>
+                <InputLabel id="doctor-label">Select Doctor</InputLabel>
+                <Select
+                  labelId="doctor-label"
+                  value={selectedDoctor}
+                  onChange={(e) => setSelectedDoctor(e.target.value)}
+                  disabled={!selectedDepartment}
+                >
+                  <MenuItem value="">Select Doctor</MenuItem>
+                  {selectedDepartment && doctors[selectedDepartment]?.map((doctor, index) => (
+                    <MenuItem key={index} value={doctor}>{doctor}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Paper>
+          )}
 
-        <section className="about">
-          <div className="about-content">
-            <h2>About Our Hospital</h2>
-            <p>
+          <Paper elevation={3} style={{ padding: '20px' }}>
+            <Typography variant="h5" gutterBottom>
+              About Our Hospital
+            </Typography>
+            <Typography variant="body1">
               Acme Hospital is a leading healthcare provider in the city, offering a wide range of medical services and treatments. Our team of highly skilled doctors and nurses work tirelessly to ensure the well-being of our patients.
-            </p>
-            <p>
+            </Typography>
+            <br />
+            <Typography variant="body1">
               With state-of-the-art facilities and cutting-edge technology, we strive to deliver the best possible care to our community. Our commitment to excellence is evident in our patient satisfaction ratings and the trust placed in us by our peers.
-            </p>
-          </div>
-        </section>
+            </Typography>
+          </Paper>
+        </Stack>
       </main>
 
-      <footer>
-        <p>&copy; 2023 Acme Hospital. All rights reserved.</p>
+      <footer style={{ backgroundColor: '#00796b', color: '#fff', padding: '10px'}}>
+        <Typography variant="body2">
+          &copy; 2024 Acme Hospital. All rights reserved.
+        </Typography>
       </footer>
-
-      <button onClick={handleSignOut}>Sign Out</button>
     </div>
   );
 }
