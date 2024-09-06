@@ -1,7 +1,6 @@
 // src/components/Signup.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './Signup.css';
 
 function Signup() {
   const [username, setUsername] = useState('');

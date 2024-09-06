@@ -1,7 +1,5 @@
-// src/components/MainPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './MainPage.css';
 
 function MainPage() {
   const navigate = useNavigate();
