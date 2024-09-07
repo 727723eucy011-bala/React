@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Card, CardContent } from '@mui/material';
-import './Homepage.css'; // You can add custom CSS styles here
+
 
 function Homepage() {
   const hospitalServices = [

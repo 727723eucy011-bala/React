@@ -5,10 +5,11 @@ import Signup from './components/Signup';
 import MainPage from './components/MainPage';
 import Homepage from './components/Home';
 import './App.css'
+import Weather from './components/exampler';
+
 
 function App() {
   return (
-
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
