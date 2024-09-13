@@ -1,0 +1,31 @@
+/* Add this CSS to your styles */
+.moving-line {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  
+  .moving-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust this value to position the line */
+    height: 2px; /* Adjust the thickness of the line */
+    width: 100%;
+    background-color: #00796b; /* Color of the line */
+    transform: translateX(-100%);
+    animation: moveLine 2s linear infinite;
+  }
+  
+  @keyframes moveLine {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
