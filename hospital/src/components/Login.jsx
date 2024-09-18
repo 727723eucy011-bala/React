@@ -1,9 +1,8 @@
-// src/components/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Typography, Container, Stack, Paper } from '@mui/material'; // Import Material-UI components
-import { AccountCircle } from '@mui/icons-material';
-import { Lock } from '@mui/icons-material'; 
+import { TextField, Button, Typography, Stack, Paper } from '@mui/material'; // Import Material-UI components
+import { AccountCircle, Lock } from '@mui/icons-material';
+
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -26,31 +25,50 @@ function Login() {
   };
 
   return (
-    <Container component="main" maxWidth="xs" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#e0f7fa' }}>
-      <Paper elevation={10} style={{ padding: '40px', textAlign: 'center', width: '100%', borderRadius: '15px', backgroundColor: '#ffffff' }}>
-        <Typography variant="h4" gutterBottom style={{ color: '#00796b' }}>
+    <div style={{
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'relative',
+      overflow: 'hidden',
+      background: 'linear-gradient(to right, #141e30, #243b55)', // Dark gradient background
+    }}>
+      <Paper 
+        elevation={10} 
+        style={{ 
+          padding: '40px', 
+          textAlign: 'center', 
+          width: '100%', 
+          maxWidth: '400px', // Limit max width for better appearance
+          borderRadius: '15px', 
+          backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+          boxShadow: '0 0 20px rgba(0, 121, 107, 0.5), 0 0 40px rgba(0, 121, 107, 0.5)', 
+          position: 'relative', 
+          // zIndex: 1,
+        }}
+      >
+        <Typography variant="h4" gutterBottom style={{ color: '#00ffcc', textShadow: '0 0 10px rgba(0, 255, 204, 0.7)' }}>
           Login
-        </Typography>
-        <br />
+        </Typography><br />
         <Stack spacing={3} alignItems="center">
           <TextField
-            variant="outlined"
-            label="Username"
             value={username}
+            placeholder='Username'
             onChange={(e) => {
               setUsername(e.target.value);
               setError('');
             }}
             required
             InputProps={{
-              startAdornment: <AccountCircle style={{ color: '#00796b' }} />, // Icon in the input field
+              startAdornment: <AccountCircle style={{ color: 'black' }} />, // Icon in the input field
             }}
-            style={{ width: '80%', borderRadius: '10px' }}
+            style={{ width: '80%', borderRadius: '5px', backgroundColor: 'rgba(255, 255, 255, 0.2)', color: '#fff' }}
           />
           <TextField
-            variant="outlined"
+            placeholder='Password'
             type="password"
-            label="Password"
+            // hidden
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
@@ -58,25 +76,39 @@ function Login() {
             }}
             required
             InputProps={{
-              startAdornment: <Lock style={{ color: '#00796b' }} />, // Lock icon in the input field
+              startAdornment: <Lock style={{ color: 'black' }} />, // Lock icon in the input field
             }}
-            style={{ width: '80%', borderRadius: '10px' }}
+            style={{ width: '80%', borderRadius: '10px', backgroundColor: 'rgba(255, 255, 255, 0.2)', color: '#fff' }}
+            // Custom styling for the label
+            InputLabelProps={{
+              style: { color: '#00ffcc' }, // Change the label color
+            }}
           />
           {error && (
             <Typography color="error">{error}</Typography>
           )}
-          <Button variant="contained" color="primary" onClick={handleLogin} style={{ width: '80%', borderRadius: '10px', backgroundColor: '#00796b' }}>
+          <Button 
+            variant="contained" 
+            color="" 
+            onClick={handleLogin} 
+            style={{ 
+              width: '80%', 
+              backgroundColor: '#00ffcc', 
+              borderRadius: '10px', 
+              boxShadow: '0 0 20px rgba(0, 255, 204, 0.7)', // Glowing effect
+            }}
+          >
             Login
           </Button>
-          <Typography variant="body2" style={{ color: '#00796b' }}>
+          <Typography variant="body2" style={{ color: '#00ffcc' }}>
             Don't have an account?{' '}
-            <span onClick={() => navigate('/signup')} className="link" style={{ cursor: 'pointer', color: '#004d40', textDecoration: 'underline' }}>
+            <span onClick={() => navigate('/signup')} className="link" style={{ cursor: 'pointer', color: '#ffffff', textDecoration: 'underline' }}>
               Sign Up
             </span>
           </Typography>
         </Stack>
       </Paper>
-    </Container>
+    </div>
   );
 }
 
