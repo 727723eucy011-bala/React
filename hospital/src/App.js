@@ -1,5 +1,6 @@
 import React from 'react';
-import Navbar from './components/exampler';
+
+import FormAndTable from './components/exampler';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Login from './components/Login';
 // import Signup from './components/Signup';
@@ -10,7 +11,7 @@ import Navbar from './components/exampler';
 
 function App() {
   return (
-    <Navbar />
+    <FormAndTable />
     // <Router>
     //   <ThemeProvider>
     //   <Routes>
