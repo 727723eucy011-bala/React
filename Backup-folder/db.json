@@ -1,0 +1,28 @@
+{
+  "users":[
+    {
+      "id":202401,
+      "name":"A",
+      "email":"a@gmail.com",
+      "password":"Avengers"
+    },
+    {
+      "id":202402,
+      "name":"B",
+      "email":"b@gmail.com",
+      "password":"Batman"
+    },
+    {
+      "id":202403,
+      "name":"C",
+      "email":"c@gmail.com",
+      "password":"Commander"
+    },
+    {
+      "id":202404,
+      "name":"D",
+      "email":"d@gmail.com",
+      "password":"Dracula"
+    }
+  ]
+}
