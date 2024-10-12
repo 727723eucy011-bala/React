@@ -7,7 +7,8 @@ import {
     Typography,
     Stack,
     Card as MuiCard,
-    Avatar
+    Avatar,
+    Divider
 } from '@mui/material'; 
 import { styled } from '@mui/material/styles';
 import axios from 'axios';
@@ -70,17 +71,20 @@ export default function Login() {
         const user = users.find(user => user.name === username);
         if (user) {
             if (user.password === password) {
-                setFound("User found");
+                // setFound("User found");
                 // Optionally navigate to another route
-                // navigate('/dashboard');
+                navigate('/appointment');
             } else {
-                setError("Incorrect password");
+                setError("Not Found, Pls Signup");
             }
         } else {
-            setError("User not found");
+            setError("Invalid Username or Password");
         }
     };
-
+    const handleSignUpRedirect = () =>
+    {
+        navigate('/signup');
+    }
     return (
         <SignInContainer direction="column" justifyContent="center">
             <CssBaseline />
@@ -127,6 +131,12 @@ export default function Login() {
                     <Button type="submit" variant="contained" style={{width:'50%'}}>
                         Login
                     </Button>
+                    <Divider />
+                    <Typography>
+                        Don't have an account? 
+                    <span style={{ cursor: 'pointer', color: 'blue' }} onClick={handleSignUpRedirect}>
+                    Sign Up </span>
+            </Typography>
                 </Box>
             </Card>
         </SignInContainer>
