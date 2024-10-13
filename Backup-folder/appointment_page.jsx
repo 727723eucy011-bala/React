@@ -98,7 +98,7 @@ const AppointmentBooking = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
              Hospital
           </Typography>
-          <Button color="inherit" onClick={() => navigate('/signup')}>Sign Out</Button>
+          <Button color="inherit" onClick={() => navigate('/signup')}>Sign </Button>
           </Toolbar>
           </AppBar>
             <Typography variant="h4" gutterBottom style={{ color: 'white' }}>
@@ -139,19 +139,21 @@ const AppointmentBooking = () => {
                         />
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <TextField  style={{boxShadow: '0px 3px 40px rgba(112, 113, 112, 2.22)',borderRadius:'19px'}}
-                            required
-                            label="Appointment Date"
-                            type="date"
-                            // variant="outlined"
-                            // fullWidth
-                            value={appointmentDate}
-                            onChange={(e) => setAppointmentDate(e.target.value)}
-                            InputLabelProps={{
-                                shrink: true,
-                                style: { color: 'white' },
-                            }}
-                        />
+                    <TextField
+                        style={{ boxShadow: '0px 3px 40px rgba(112, 113, 112, 2.22)', borderRadius: '19px' }}
+                        required
+                        label="Appointment Date"
+                        type="date"
+                        value={appointmentDate}
+                        onChange={(e) => setAppointmentDate(e.target.value)}
+                        InputLabelProps={{
+                            shrink: true,
+                            style: { color: 'white' },
+                        }}
+                        InputProps={{
+                            style: { color: 'white' }, // This will set the date text color to white
+                        }}
+                    />
                     </Grid>
                 </Grid>
                 <Button type="submit" variant="contained" color="primary" style={{ marginTop: '16px' }}>
