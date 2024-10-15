@@ -1,15 +1,15 @@
 import React from "react";
-const Product = ({pdt}) => {
+const ProductListComponent = ({productList}) => {
   return (
     <ul>
-      {pdt.map((pd) => (
-        <li key={pd.id}>
-          <div>{pd.name}</div>
-          <img src={'/${pd.imageUrl}'} alt={pd.name} style={{width:'100px' , height:'auto'}}/>
-          <div>${pd.price.toFixed(2)}</div>
+      {productList.map((product) => (
+        <li key={product.id}>
+          <div>{product.name}</div>
+          <img src={'/${product.imageUrl}'} alt={product.name} style={{width:'100px' , height:'auto'}}/>
+          <div>${product.price.toFixed(2)}</div>
         </li>
       ))}
     </ul>
   );
 };
-export default Product;
+export default ProductListComponent;
