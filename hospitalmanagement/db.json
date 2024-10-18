@@ -172,15 +172,7 @@
       ]
     }
   ],
-  "appointmentfixed": [
-    {
-      "id": "17eb",
-      "patient_name": "lokesh",
-      "appointed_doctor": "Dr. Kevin White",
-      "date": "2024-10-30",
-      "time": "10/17/2024, 11:58:00 AM"
-    }
-  ],
+  "appointmentfixed": [],
   "services": [
     {
       "id": "1",

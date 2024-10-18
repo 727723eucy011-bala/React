@@ -6,6 +6,8 @@ import {
   Card, CardContent, Button
 } from '@mui/material';
 import axios from 'axios';
+import About from './About';
+import Help from './Help';
 
 function MainPage() {
   const navigate = useNavigate();
@@ -67,8 +69,8 @@ const handleAppointmentClick = () => {
           <Button color="inherit" onClick={() => navigate('/help')}>Help</Button>
           <Button color="inherit" onClick={handleServiceClick}>Services</Button>
           <Button color="inherit" onClick={handleEducationClick}>Institution</Button>
-          <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
-          <Button color="inherit" onClick={() => navigate('/signup')}>Sign Up</Button>
+          {/* <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
+          <Button color="inherit" onClick={() => navigate('/signup')}>Sign Up</Button> */}
           <Button color="inherit" onClick={handleAppointmentClick}>Appointment</Button>
         </Toolbar>
       </AppBar>
