@@ -23,6 +23,12 @@
       "name": "Na",
       "password": "123123",
       "email": "2134S"
+    },
+    {
+      "id": "ddab",
+      "name": "username",
+      "password": "Abc123!@#",
+      "email": "gmail@gmail.com"
     }
   ],
   "doctors": [
@@ -168,11 +174,11 @@
   ],
   "appointmentfixed": [
     {
-      "id": "a174",
-      "patient_name": "raj",
-      "appointed_doctor": "Dr. Emily Johnson",
-      "date": "2024-10-31",
-      "time": "14/10/2024, 10:21:59 am"
+      "id": "17eb",
+      "patient_name": "lokesh",
+      "appointed_doctor": "Dr. Kevin White",
+      "date": "2024-10-30",
+      "time": "10/17/2024, 11:58:00 AM"
     }
   ],
   "services": [
