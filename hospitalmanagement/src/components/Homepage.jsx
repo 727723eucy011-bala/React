@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import background from './background.jpg';
+// import background from './background.jpg';
 import { useNavigate } from 'react-router-dom';
 import {
   AppBar, Toolbar, Typography, Box, Divider, Paper, Stack,
   Card, CardContent, Button
 } from '@mui/material';
 import axios from 'axios';
-import About from './About';
-import Help from './Help';
+// import About from './About';
+// import Help from './Help';
 
 function MainPage() {
   const navigate = useNavigate();
@@ -58,9 +58,9 @@ const handleAppointmentClick = () => {
   }
 };
   return (
-    <div style={{backgroundImage: `url(${background})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',minHeight: '100vh',width:'100%'}}>
+    <div >
       {/* Header with Navigation Bar */}
-      <AppBar position="static" sx={{ background: 'transparent', boxShadow: 'none' }}>
+      <AppBar position="static" sx={{ background: 'transparent', boxShadow: 'none',color:"black" }}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
              Hospital
@@ -76,9 +76,9 @@ const handleAppointmentClick = () => {
       </AppBar>
 
       <main>
-        <Box sx={{ padding: '20px' }}>
+        <Box sx={{ padding: '20px',color:"black" }}>
           {/* Welcome Section */}
-          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 40px rgba(112, 113, 112, 2.22)',backgroundColor: 'transparent' ,color:'white'}}>
+          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 40px rgba(112, 113, 112, 2.22)' ,color:'black'}}>
             <Typography variant="h4" gutterBottom align="center">
               Welcome to WhaleRise Hospital
             </Typography>
@@ -89,7 +89,7 @@ const handleAppointmentClick = () => {
           
           {/* Services Section */}
           {displayServices && (
-            <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)', backgroundColor: 'transparent' ,color:'white'}}>
+            <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:'black'}}>
               <Typography variant="h4" gutterBottom>
                 Hospital Services
               </Typography>
@@ -107,7 +107,7 @@ const handleAppointmentClick = () => {
           )}
 
           {/* Education Programs Section */}
-          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)', backgroundColor: 'transparent' ,color:'white' }}>
+          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:"black" }}>
             <Typography variant="h4" gutterBottom>
               Education Programs
             </Typography>
@@ -121,7 +121,7 @@ const handleAppointmentClick = () => {
               </ul>
 
               {displayinstitution && (
-            <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)', backgroundColor: 'transparent' ,color:'white'}}>
+            <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:"black"}}>
               <Typography variant="h4" gutterBottom>
                 Program details
               </Typography>
@@ -142,7 +142,7 @@ const handleAppointmentClick = () => {
           </Paper>
 
           {/* Helpline Section */}
-          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px', boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)', backgroundColor: 'transparent' ,color:'white'  }}>
+          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px', boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:"black"  }}>
             <Typography variant="h4" gutterBottom>
               Helpline
             </Typography>
@@ -152,7 +152,7 @@ const handleAppointmentClick = () => {
           </Paper>
 
           {/* Honorables Section */}
-          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)', backgroundColor: 'transparent' ,color:'white'  }}>
+          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:"black"  }}>
             <Typography variant="h4" gutterBottom>
               Honorables
             </Typography>

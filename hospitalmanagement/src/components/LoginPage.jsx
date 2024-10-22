@@ -11,7 +11,7 @@ import {
     Divider
 } from '@mui/material'; 
 import { styled } from '@mui/material/styles';
-import background from './background.jpg'
+// import background from './background.jpg'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,14 +30,14 @@ const Card = styled(MuiCard)(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
 }));
 
-const SignInContainer = styled(Stack)(({ theme }) => ({
-    minHeight: '100vh',
-    padding: theme.spacing(2),
-    justifyContent:'center',
-    backgroundImage: `url(${background})`,
-    backgroundSize: 'cover',
-    backgroundPosition:'center',
-}));
+// const SignInContainer = styled(Stack)(({ theme }) => ({
+//     minHeight: '100vh',
+//     padding: theme.spacing(2),
+//     justifyContent:'center',
+//     backgroundImage: `url(${background})`,
+//     backgroundSize: 'cover',
+//     backgroundPosition:'center',
+// }));
 
 export default function Login() {
     const [username, setUsername] = React.useState("");
@@ -82,27 +82,23 @@ export default function Login() {
         navigate('/signup');
     }
 
-    return (
-        <SignInContainer direction="column" justifyContent="center">
-            <CssBaseline />
-            
-
-            <Card variant="outlined">
+    return (   
+        <Card variant="outlined">
                 <Avatar 
                     alt="User Avatar" 
                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.7gUunYcYIivgGsb5GJiTygHaHa%26pid%3DApi&f=1&ipt=722ac69815c9bb8dd692d7a0b3fa99231a49174878997e03e05cdaad46700a10&ipo=images"
                     sx={{ width: 60, height: 56, marginBottom: 2 }} 
                 />
                     <Box sx={{ textAlign: 'center', mb: 4 }}>
-                <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#fff' }}>
+                <Typography variant="h5" sx={{ fontWeight: 'bold', color:"black" }}>
                     Welcome to Our Hospital
                 </Typography>
-                <Typography variant="body1" sx={{ fontStyle: 'italic', color: '#fff' }}>
+                <Typography variant="body1" sx={{ fontStyle: 'italic', color:"black" }}>
                     Your health is our priority. Please log in to access your appointments and more.
                 </Typography>
             </Box>
             <Divider  orientation="horizontal" sx={{ mx: 2 }} />
-                <Typography component="h1" variant="h4" sx={{ textAlign: 'center', fontWeight: 'bold', color: 'white' }}>
+                <Typography component="h1" variant="h4" sx={{ textAlign: 'center', fontWeight: 'bold', color:"black" }}>
                     Login
                 </Typography>
                 <Box
@@ -145,13 +141,13 @@ export default function Login() {
                     
                     <Typography align="center">
                         Don't have an account? 
-                        <span style={{ cursor: 'pointer', color: 'white', fontWeight: 'bold' }} onClick={handleSignUpRedirect}>
+                        <span style={{ cursor: 'pointer', color:"black", fontWeight: 'bold' }} onClick={handleSignUpRedirect}>
                             Sign Up
                         </span>
                     </Typography>
                     
                 </Box>
             </Card>
-        </SignInContainer>
+        
     );
 }

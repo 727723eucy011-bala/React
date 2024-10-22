@@ -304,7 +304,7 @@ import {
     Typography, Card as MuiCard, CardContent, Grid, Stack,
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 } from '@mui/material';
-import background from './background.jpg';
+// import background from './background.jpg';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
@@ -312,9 +312,9 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
     minHeight: '100vh',
     padding: theme.spacing(2),
     justifyContent: 'center',
-    backgroundImage: `url(${background})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    // backgroundImage: `url(${background})`,
+    // backgroundSize: 'cover',
+    // backgroundPosition: 'center',
     textAlign: 'center'
 }));
 
