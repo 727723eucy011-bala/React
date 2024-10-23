@@ -4,6 +4,7 @@ import Signup from './components/Signup';
 import Login from './components/LoginPage';
 import  AppointmentBooking from './components/Appointment';
 import MainPage from './components/Homepage';
+import DeleteAppointment from './components/DeleteAppointment';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/appointment" element={<AppointmentBooking />} />
+            <Route path="/deleteappointment" element={<DeleteAppointment/>} />
             </Routes>
     </Router>
         

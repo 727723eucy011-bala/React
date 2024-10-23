@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -11,14 +12,14 @@ import {
     IconButton
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Visibility, VisibilityOff } from '@mui/icons-material'; // Import icons for visibility toggle
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 const Card = styled(MuiCard)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignSelf: 'center',
     maxWidth: '300px', 
-    maxHeight: '600px',
+    maxHeight: '100%',
     width: '50%',
     padding: theme.spacing(4),
     gap: theme.spacing(2),
@@ -39,16 +40,16 @@ const Signup = () => {
     const [passwordError, setPasswordError] = useState("");
     
     const [showPassword, setShowPassword] = useState(false); 
-    const [showCpassword, setShowCpassword] = useState(false); // State for confirming password visibility
+    const [showCpassword, setShowCpassword] = useState(false); 
     const navigate = useNavigate();
 
     const validateUsername = (username) => {
-        const usernameRegex = /^[a-zA-Z0-9]+$/; // Alphanumeric only
+        const usernameRegex = /^[a-zA-Z0-9]+$/; 
         return username.length >= 3 && username.length <= 30 && usernameRegex.test(username);
     };
 
     const validateEmail = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,3}$/; // Updated regex to enforce domain length
         return email.length > 0 && emailRegex.test(email);
     };
 
@@ -101,26 +102,19 @@ const Signup = () => {
     };
 
  return (
-     <Box sx={{ display: 'flex',fontFamily:'cursive' }}>
-         <Box sx={{ margin:'2%', width: '100%', display: 'flex', justifyContent: 'center',fontFamily:'cursive', alignItems: 'center' }}>
+     <Box sx={{ display: 'flex', fontFamily:'cursive' }}>
+         <Box sx={{ margin:'0.5%', width: '100%', display: 'flex', justifyContent: 'center', fontFamily:'cursive', alignItems: 'center' }}>
              <Card variant="outlined">
-                 {/* <Avatar 
-                     alt="User Avatar" 
-                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.7gUunYcYIivgGsb5GJiTygHaHa%26pid%3DApi&f=1&ipt=722ac69815c9bb8dd692d7a0b3fa99231a49174878997e03e05cdaad46700a10&ipo=images"
-                     sx={{ width: 60, height: 56, marginBottom: 2 }} 
-                 /> */}
-                 {/* <Box sx={{ , mb: 4 }}> */}
-                     <Typography variant="h5" sx={{ fontWeight: 'bold',fontFamily:'cursive', color:"black" }}>
-                         Welcome to Our Hospital
-                     </Typography>
-                     <Typography variant="body1" sx={{fontFamily:'cursive', fontSize:'10px',color:"black" }}>
-                         Your health is our priority. Please log in to access your appointments and more.
-                     </Typography>
-                     <Divider orientation="horizontal"  />
-                     <Typography component="h1" variant="h4" sx={{ textAlign: 'center', fontWeight: 'bold', color:"black", mb: 1,fontFamily:'cursive' }}>
+                 <Typography variant="h5" sx={{ fontWeight: 'bold', fontFamily:'cursive', color:"black" }}>
+                     Welcome to Our Hospital
+                 </Typography>
+                 <Typography variant="body1" sx={{ fontFamily:'cursive', fontSize:'10px', color:"black" }}>
+                     Your health is our priority. Please log in to access your appointments and more.
+                 </Typography>
+                 <Divider orientation="horizontal" />
+                 <Typography component="h1" variant="h4" sx={{ textAlign: 'center', fontWeight: 'bold', color:"black", mb: 1,fontFamily:'cursive' }}>
                      Signup
                  </Typography>
-                 {/* </Box> */}
                  <Box component="form" onSubmit={handler} noValidate sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                      <TextField
                          label="Username"
@@ -131,7 +125,7 @@ const Signup = () => {
                          onChange={(e) => setUsername(e.target.value)}
                          error={!validateUsername(username) && username.length > 0}
                          helperText={!validateUsername(username) && username.length > 0 ? "Invalid username." : ""}
-                         style={{height:'49px' }} 
+                        //  style={{ height:'49px' }} 
                      />
                      <TextField
                          label="Email"
@@ -143,7 +137,7 @@ const Signup = () => {
                          onChange={(e) => setEmail(e.target.value)}
                          error={!validateEmail(email) && email.length > 0}
                          helperText={!validateEmail(email) && email.length > 0 ? "Invalid email format." : ""}
-                         style={{height:'49px' }} 
+                        //  style={{ height:'49px' }} 
                      />
                      <Box sx={{ position: 'relative' }}>
                          <TextField
@@ -156,7 +150,7 @@ const Signup = () => {
                              onChange={(e) => setPassword(e.target.value)}
                              error={!validatePassword(password) && password.length > 0}
                              helperText={!validatePassword(password) && password.length > 0 ? "Invalid password." : ""}
-                             style={{height:'49px' }} 
+                            //  style={{ height:'49px' }} 
                          />
                          <IconButton
                              onClick={() => setShowPassword(!showPassword)}
@@ -170,7 +164,7 @@ const Signup = () => {
                              {showPassword ? <VisibilityOff /> : <Visibility />}
                          </IconButton>
                      </Box>
-                     <Typography sx={{fontSize:'9px', fontFamily:'cursive'}}>Password should contain at least one character, number, symbol and length should be greater than or equal to 8.</Typography>
+                     <Typography sx={{ fontSize:'9px', fontFamily:'cursive' }}>Password should contain at least one character, number, symbol and length should be greater than or equal to 8.</Typography>
                      
                      <Box sx={{ position: 'relative' }}>
                          <TextField
@@ -218,3 +212,8 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
+
+
+
