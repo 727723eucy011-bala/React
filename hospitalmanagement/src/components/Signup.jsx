@@ -8,8 +8,6 @@ import {
     Typography,
     Card as MuiCard,
     Divider,
-    Stack,
-    Avatar,
     IconButton
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -19,15 +17,16 @@ const Card = styled(MuiCard)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignSelf: 'center',
-    width: '50%',maxHeight:'100%',
+    maxWidth: '300px', 
+    maxHeight: '600px',
+    width: '50%',
     padding: theme.spacing(4),
     gap: theme.spacing(2),
-    margin: 'auto',
-    maxWidth: '400px',
+    marginTop: '50px',
     backgroundColor: 'rgba(255, 255, 255, 0.30)',
     backdropFilter: 'blur(30px)',
-    boxShadow: '0px 10px 30px rgba(0, 0, 0, 2.22)',
-    borderRadius: theme.shape.borderRadius,
+    boxShadow: '0px 10px 95px rgba(0, 0, 0, 2.22)',
+    borderRadius:'15px',
 }));
 
 const Signup = () => {
@@ -105,11 +104,11 @@ const Signup = () => {
      <Box sx={{ display: 'flex',fontFamily:'cursive' }}>
          <Box sx={{ margin:'2%', width: '100%', display: 'flex', justifyContent: 'center',fontFamily:'cursive', alignItems: 'center' }}>
              <Card variant="outlined">
-                 <Avatar 
+                 {/* <Avatar 
                      alt="User Avatar" 
                      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.7gUunYcYIivgGsb5GJiTygHaHa%26pid%3DApi&f=1&ipt=722ac69815c9bb8dd692d7a0b3fa99231a49174878997e03e05cdaad46700a10&ipo=images"
                      sx={{ width: 60, height: 56, marginBottom: 2 }} 
-                 />
+                 /> */}
                  {/* <Box sx={{ , mb: 4 }}> */}
                      <Typography variant="h5" sx={{ fontWeight: 'bold',fontFamily:'cursive', color:"black" }}>
                          Welcome to Our Hospital
@@ -118,7 +117,7 @@ const Signup = () => {
                          Your health is our priority. Please log in to access your appointments and more.
                      </Typography>
                      <Divider orientation="horizontal"  />
-                 <Typography component="h1" variant="h4" sx={{ textAlign: 'center', fontWeight: 'bold', color: '#333' }}>
+                     <Typography component="h1" variant="h4" sx={{ textAlign: 'center', fontWeight: 'bold', color:"black", mb: 1,fontFamily:'cursive' }}>
                      Signup
                  </Typography>
                  {/* </Box> */}
@@ -132,6 +131,7 @@ const Signup = () => {
                          onChange={(e) => setUsername(e.target.value)}
                          error={!validateUsername(username) && username.length > 0}
                          helperText={!validateUsername(username) && username.length > 0 ? "Invalid username." : ""}
+                         style={{height:'49px' }} 
                      />
                      <TextField
                          label="Email"
@@ -143,6 +143,7 @@ const Signup = () => {
                          onChange={(e) => setEmail(e.target.value)}
                          error={!validateEmail(email) && email.length > 0}
                          helperText={!validateEmail(email) && email.length > 0 ? "Invalid email format." : ""}
+                         style={{height:'49px' }} 
                      />
                      <Box sx={{ position: 'relative' }}>
                          <TextField
@@ -155,6 +156,7 @@ const Signup = () => {
                              onChange={(e) => setPassword(e.target.value)}
                              error={!validatePassword(password) && password.length > 0}
                              helperText={!validatePassword(password) && password.length > 0 ? "Invalid password." : ""}
+                             style={{height:'49px' }} 
                          />
                          <IconButton
                              onClick={() => setShowPassword(!showPassword)}

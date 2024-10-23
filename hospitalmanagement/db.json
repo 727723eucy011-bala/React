@@ -1,34 +1,10 @@
 {
   "users": [
     {
-      "id": "1dde",
+      "id": "4c58",
       "name": "Bala",
-      "password": "123123",
-      "email": "Bala@gmail.com"
-    },
-    {
-      "id": "1ff7",
-      "name": "harish",
-      "password": "123123",
-      "email": "harish@gmail.com"
-    },
-    {
-      "id": "8504",
-      "name": "bala",
-      "password": "123123",
-      "email": "qwe@gmail.com"
-    },
-    {
-      "id": "f17b",
-      "name": "Na",
-      "password": "123123",
-      "email": "2134S"
-    },
-    {
-      "id": "ddab",
-      "name": "username",
-      "password": "Abc123!@#",
-      "email": "gmail@gmail.com"
+      "password": "qwe!@#123W",
+      "email": "bala@gmail.com"
     }
   ],
   "doctors": [

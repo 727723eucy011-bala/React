@@ -63,10 +63,10 @@ const handleAppointmentClick = () => {
       <AppBar position="static" sx={{ background: 'transparent', boxShadow: 'none',color:"black" }}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-             Hospital
+             Aura Hospital   👨‍⚕️
           </Typography>
-          <Button color="inherit" onClick={() => navigate('/about')}>About</Button>
-          <Button color="inherit" onClick={() => navigate('/help')}>Help</Button>
+          {/* <Button color="inherit" onClick={() => navigate('/about')}>About</Button> */}
+          {/* <Button color="inherit" onClick={() => navigate('/help')}>Help</Button> */}
           <Button color="inherit" onClick={handleServiceClick}>Services</Button>
           <Button color="inherit" onClick={handleEducationClick}>Institution</Button>
           {/* <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
@@ -107,7 +107,7 @@ const handleAppointmentClick = () => {
           )}
 
           {/* Education Programs Section */}
-          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:"black" }}>
+          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 34px rgba(112, 113, 112, 2.22)',color:"black" }}>
             <Typography variant="h4" gutterBottom>
               Education Programs
             </Typography>
@@ -121,7 +121,7 @@ const handleAppointmentClick = () => {
               </ul>
 
               {displayinstitution && (
-            <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:"black"}}>
+            <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 34px rgba(112, 113, 112, 2.22)',color:"black"}}>
               <Typography variant="h4" gutterBottom>
                 Program details
               </Typography>
@@ -142,7 +142,7 @@ const handleAppointmentClick = () => {
           </Paper>
 
           {/* Helpline Section */}
-          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px', boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:"black"  }}>
+          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px', boxShadow: '0px 3px 34px rgba(112, 113, 112, 2.22)',color:"black"  }}>
             <Typography variant="h4" gutterBottom>
               Helpline
             </Typography>
@@ -152,7 +152,7 @@ const handleAppointmentClick = () => {
           </Paper>
 
           {/* Honorables Section */}
-          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 3px rgba(112, 113, 112, 2.22)',color:"black"  }}>
+          <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 34px rgba(112, 113, 112, 2.22)',color:"black"  }}>
             <Typography variant="h4" gutterBottom>
               Honorables
             </Typography>
@@ -175,3 +175,4 @@ const handleAppointmentClick = () => {
 }
 
 export default MainPage;
+//qwe!@#123W
