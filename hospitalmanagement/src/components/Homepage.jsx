@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-// import background from './background.jpg';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  AppBar, Toolbar, Typography, Box, Divider, Paper, Stack,
+  AppBar, Toolbar, Typography, Box, Paper, Stack,
   Card, CardContent, Button
 } from '@mui/material';
 import axios from 'axios';

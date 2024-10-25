@@ -54,6 +54,7 @@ const Signup = () => {
     };
 
     const validatePassword = (password) => {
+        // eslint-disable-next-line
         const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/; 
         return password.length > 0 && passwordRegex.test(password);
     };

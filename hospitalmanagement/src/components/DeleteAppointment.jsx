@@ -4,7 +4,7 @@ import {
     AppBar, Toolbar, Button,
     Typography, Card as MuiCard, CardContent, Stack
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
 const SignInContainer = styled(Stack)(({ theme }) => ({
@@ -34,7 +34,7 @@ const Card = styled(MuiCard)(({ theme }) => ({
 
 const DeleteAppointment = () => {
     const [appointments, setAppointments] = useState([]);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         const fetchAppointments = async () => {
@@ -65,10 +65,10 @@ const DeleteAppointment = () => {
    };
 
    // Function to handle logout
-   const handleLogout = () => {
-       localStorage.removeItem('user'); // Clear user data from local storage
-       navigate('/login'); // Redirect to login page or home page
-   };
+//    const handleLogout = () => {
+//        localStorage.removeItem('user'); // Clear user data from local storage
+//        navigate('/login'); // Redirect to login page or home page
+//    };
 
    return (
        <SignInContainer direction="column">
