@@ -79,7 +79,7 @@ const handleAppointmentClick = () => {
           {/* Welcome Section */}
           <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px',boxShadow: '0px 3px 40px rgba(112, 113, 112, 2.22)' ,color:'black'}}>
             <Typography variant="h4" gutterBottom align="center">
-              Welcome to WhaleRise Hospital
+              Welcome to Aura Hospital
             </Typography>
             <Typography variant="body1" align="center">
               Your health is our priority. We provide a range of services to cater to all your medical needs.

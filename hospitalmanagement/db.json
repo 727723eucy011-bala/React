@@ -17,6 +17,12 @@
       "name": "qwe",
       "password": "1@3qweQWE",
       "email": "qwe@gmail.com"
+    },
+    {
+      "id": "7eda",
+      "name": "Vas",
+      "password": "Qwe!232#",
+      "email": "vas@gmail.com"
     }
   ],
   "doctors": [
